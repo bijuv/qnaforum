@@ -3,7 +3,7 @@ class QueriesController < ApplicationController
   # GET /queries.xml
   def index
     @queries = Query.all
-    @post= Post.all
+    #@post= Post.all  ============================
     @query = Query.new
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class QueriesController < ApplicationController
   # GET /queries/1.xml
   def show
     @query = Query.find(params[:id])
-    @posts= Post.all
+    #@posts= Post.order(:'rating desc') ============================
     #@ans= Post.find_by_query_id(params[:id])
     respond_to do |format|
       format.html # show.html.erb
@@ -49,7 +49,9 @@ class QueriesController < ApplicationController
         q.user_id = @user.id
       end
     else
-      @query = Query.new(params[:query])
+      @query = Query.new do |q|
+        q.question = params[:query][:question]
+      end
     end
     respond_to do |format|
       if @query.save

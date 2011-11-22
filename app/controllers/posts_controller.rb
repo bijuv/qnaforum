@@ -1,8 +1,26 @@
 class PostsController < ApplicationController
+  
+  
+  def add_rate
+     @post = Post.find(params[:id])
+     @query= 1
+        @post.rating += 1
+     if @post.save
+       redirect_to :back
+       end
+  end
+  def less_rate
+     @post = Post.find(params[:id])
+        @post.rating -= 1
+     if @post.save
+       redirect_to :back
+     end
+  end
+  
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
+   #@posts= Post.order(:'rating desc')============================
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +31,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    @post = Post.find(params[:id])
+    #@post = Post.find(params[:id])============================
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,14 +58,15 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
-    @post = Post.create(:answer => params[:answer], :query_id => params[:query_id])
+    @user = User.find_by_email(session[:user_id])
+    @post = Post.create(:answer => params[:answer], :query_id => params[:query_id],:user_id => @user.id)
     @query= params[:query_id]
     respond_to do |format|
       if @post.save
-         format.html {redirect_to (@query)}
+         format.html {redirect_to :back}
         else
          flash[:notice]= "Message failed to save."
-         format.html{redirect_to (@query)}
+         format.html{redirect_to :back}
       end
     end
   end

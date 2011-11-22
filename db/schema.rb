@@ -10,13 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111121052749) do
+ActiveRecord::Schema.define(:version => 20111119103455) do
 
   create_table "posts", :force => true do |t|
     t.text     "answer"
     t.integer  "user_id"
     t.integer  "query_id"
-    t.integer  "rating"
+    t.integer  "rating",     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

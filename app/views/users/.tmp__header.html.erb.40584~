@@ -1,0 +1,22 @@
+<div id= 'buttons'><%= button_to 'Ask', new_query_path %></div>
+<div id= 'header'><%= link_to "HOME", :controller => 'queries', :action => 'index'%></div>
+<div id= 'header'>
+	<% if session[:user_id]%>
+		<%= session[:user_id] %>
+		<%=button_to "Logout",:controller => 'users',:action=> 'logout'%>
+	<% else %>
+		<table>
+		<%form_for(:user, :url => {:controller => "users", :action => "login"}) do |f|%>
+			<tr><%= f.label :"e-mail:"%></tr>
+			<tr><%= f.text_field :email%></tr>
+			<tr><%= f.label :"password:"%></tr>
+			<tr><%= f.password_field :password%></tr>
+			<tr><%= f.submit "Login/Register"%></tr>
+		<%end%>
+		</table>
+	<%end%>
+</div>
+
+
+
+

@@ -4,5 +4,6 @@ class User < ActiveRecord::Base
   
   validates :email, :password, :name, :presence => true
   validates :email, :uniqueness => true
+  validates :name, :format =>{:with => %r{^[a-zA-Z]}}
   validates :email, :format => {:with => %r{^([a-zA-Z0-9_\-\.]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$}i,:message => 'must be a valid e-mail id.'}
 end
