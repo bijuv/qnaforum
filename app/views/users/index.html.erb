@@ -1,0 +1,21 @@
+<div id= 'h1'><%= button_to 'Ask', new_query_path %></div>
+<%= render :partial => 'users/header' %>
+<p> <%= flash[:notice] %></p>
+<table>
+ 	<% @queries.each do |query| %>
+  	<tr>
+    	<h3>Q. <%= link_to query.question, query %></h3>
+		<%=@posts.each do |p|%>
+			
+			<%= @p= Post.find_by_query_id(234)%>
+		<% end %>
+	</tr>
+	<% end %>
+
+   render :text => 'ok'
+   render :partial => "test"
+  
+</table>
+<br />
+
+

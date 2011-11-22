@@ -1,0 +1,12 @@
+<div id= 'h1'><%= button_to 'Ask', new_query_path %></div>
+<table>
+ 	<% @queries.each do |query| %>
+  	<tr>
+    	<h3>Q. <%= link_to query.question, query %></h3>
+		<%=link_to @post %> 
+  	</tr>
+	<% end %>
+</table>
+<br />
+
+

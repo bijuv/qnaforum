@@ -1,0 +1,8 @@
+<p><h2>Ans: <%= post.answer%>
+<%= button_to "+" %>
+
+<%= post.rating %>
+
+<%= button_to "-" %></p></h2>
+
+<p><b> Posted <%= time_ago_in_words(post.created_at) %> ago </b></p>
