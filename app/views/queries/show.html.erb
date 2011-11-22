@@ -12,9 +12,11 @@
 	 		<h3>Ans: <%=post.answer%> 
 			<% if session[:user_id] %>
 				<div id="rate">
-				<%= button_to "+",:controller=>'posts',:action=>'add_rate',:id=>[post.id],:post =>[post.id]%> 
+				<%= button_to "+",:controller=>'posts',:action=>'add_rate',:id=>[post.id]%> 
 				<%= post.rating%> 
+				<% if @karma > 10%>
 				<%= button_to "-",:controller=>'posts',:action=>'less_rate',:id=>[post.id]%>
+				<% end %>
 				</div></h3>
 			<% else %>
 				<div id="rate">

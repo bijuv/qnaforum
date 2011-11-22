@@ -16,6 +16,8 @@ class QueriesController < ApplicationController
   def show
     @query = Query.find(params[:id])
     @posts= Post.all(:order => "rating DESC")
+    user= User.find_by_email(session[:user_id])
+    @karma=user.karma
     #@ans= Post.find_by_query_id(params[:id])
     respond_to do |format|
       format.html # show.html.erb

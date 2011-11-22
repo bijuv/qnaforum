@@ -2,7 +2,9 @@
 <div id= 'header'><%= link_to "HOME", :controller => 'queries', :action => 'index'%></div>
 <div id= 'header'>
 	<% if session[:user_id]%>
-		<%= session[:user_id] %>
+		<% @user= User.find_by_email(session[:user_id]) %>
+		Welcome <%= @user.name %>&nbsp;
+		Karma= <%= @user.karma %>
 		<%=button_to "Logout",:controller => 'users',:action=> 'logout'%>
 	<% else %>
 		<table>

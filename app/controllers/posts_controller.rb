@@ -3,19 +3,26 @@ class PostsController < ApplicationController
   
   def add_rate
      @post = Post.find(params[:id])
-     @query= 1
-        @post.rating += 1
-     if @post.save
-       redirect_to :back
-       end
+     @post.rating += 1
+     @user = User.find_by_id(@post.user_id)
+     @user.karma +=1
+     if @user.save
+      if @post.save
+        redirect_to :back
+      end
+     end
   end
   def less_rate
      @post = Post.find(params[:id])
-        @post.rating -= 1
-     if @post.save
-       redirect_to :back
-     end
-  end
+     @post.rating -= 1
+     @user = User.find_by_id(@post.user_id)
+     @user.karma -=1
+     if @user.save
+      if @post.save
+         redirect_to :back
+      end
+    end
+   end
   
   # GET /posts
   # GET /posts.xml
