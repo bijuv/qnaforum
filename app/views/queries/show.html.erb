@@ -4,6 +4,8 @@
   		 <%@user= User.find_by_id(@query.user_id) %></h2>
 		 <% if @user != nil  %>
 		 By: <%= @user.name %>
+		 <% else %>
+		 By: Anonymous
 		 <% end %>
 		 <%@post = Query.find_by_id(@query.id)%>
  	 	 <% for post in @post.posts%>
@@ -25,10 +27,12 @@
 <div id="bottom">
   <% if session[:user_id] %>
   	<% form_tag(:controller => "posts", :action => "create") do %>  
-  	<%= label_tag(:message, "Answer it") %><br />  
-  	<%= text_area_tag(:answer, nil, :size => "44x6") %><br />
-  	<%= text_area_tag(:query_id, @query.id, :size => "2x1")%>  
-  	<%= submit_tag("Post it") %>
- <% end %>  
+  		<%= label_tag(:message, "Answer it") %><br />  
+  		<%= text_area_tag(:answer, nil, :size => "44x6") %><br />
+  		<%= text_area_tag(:query_id, @query.id, :size => "2x1")%>  
+  		<%= submit_tag("Post it") %>
+ 	<% end %>
+	<% else %>
+		<h2> Login to Answer</h2>  
 <% end %>  
 </div>
