@@ -2,9 +2,9 @@ class QueriesController < ApplicationController
   # GET /queries
   # GET /queries.xml
   def index
-    @queries = Query.all
-    @posts= Post.all(:order => "rating DESC")
-    @query = Query.new
+   @queries = Query.paginate :page=>params[:page], :order=>'created_at desc',:per_page => 10
+   @posts= Post.all(:order => "rating DESC")
+   @query = Query.new
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @queries }
@@ -16,8 +16,9 @@ class QueriesController < ApplicationController
   def show
     @query = Query.find(params[:id])
     @posts= Post.all(:order => "rating DESC")
-    user= User.find_by_email(session[:user_id])
-    @karma=user.karma
+    if user= User.find_by_email(session[:user_id])
+      @karma=user.karma
+    end
     #@ans= Post.find_by_query_id(params[:id])
     respond_to do |format|
       format.html # show.html.erb

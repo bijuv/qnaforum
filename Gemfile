@@ -4,7 +4,7 @@ gem 'rails', '3.0.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'will_paginate', '>= 3.0.pre'
 gem 'pg'
 
 # Use unicorn as the web server
