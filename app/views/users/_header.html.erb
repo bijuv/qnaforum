@@ -1,6 +1,7 @@
 <div id= 'buttons'><%= button_to 'Ask', new_query_path %></div>
 <div id= 'header'><%= link_to "HOME", :controller => 'queries', :action => 'index'%></div>
-<div id= 'header'>
+<div class="jq">
+
 	<% if session[:user_id]%>
 		<% @user= User.find_by_email(session[:user_id]) %>
 		Welcome <%= @user.name %>&nbsp;
@@ -8,7 +9,7 @@
 		<%=button_to "Logout",:controller => 'users',:action=> 'logout'%>
 	<% else %>
 		<table>
-		<%form_for(:user, :url => {:controller => "users", :action => "login"}) do |f|%>
+		<%= form_for(:user, :url => {:controller => "users", :action => "login"}) do |f|%>
 			<tr><%= f.label :"e-mail:"%></tr>
 			<tr><%= f.text_field :email%></tr>
 			<tr><%= f.label :"password:"%></tr>
@@ -16,6 +17,17 @@
 			<tr><%= f.submit "Login/Register"%></tr>
 		<%end%>
 		</table>
+		</div>
+		<a href="#" id="show_login">Login / Register</a>
+		<script> 
+			$(document).ready(function() {
+				$(".jq").hide();
+			});
+			$("#show_login").click(function () {
+   		   			$(".jq").slideToggle('slow');
+    		});
+		</script>
+
 	<%end%>
 </div>
 
