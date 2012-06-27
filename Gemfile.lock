@@ -42,8 +42,6 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.18)
-    pg (0.11.0)
-    pg (0.11.0-x86-mingw32)
     polyglot (0.3.3)
     rack (1.2.1)
     rack-mount (0.6.14)
@@ -83,7 +81,6 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  pg
   rails (= 3.0.9)
   thin
   will_paginate (>= 3.0.pre)
