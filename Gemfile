@@ -1,12 +1,42 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
-
+gem 'rails', '3.2.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'will_paginate', '>= 3.0.pre'
+gem 'will_paginate'
 #gem 'pg'
+gem "mysql"
 gem 'thin'
+#gem 'activerecord-mysql-adapter'
+
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer'
+
+  gem 'uglifier', '>= 1.0.3'
+  gem 'twitter-bootstrap-rails'
+end
+
+gem 'jquery-rails'
+
+#gem 'rails', '3.1.1'
+
+# group :development do
+#   gem 'rspec-rails', '2.6.1'
+# end
+
+
+# group :test do
+#   gem 'rspec-rails', '2.6.1'
+#   gem 'webrat', '0.7.1'
+# end
+
+
+
+
 
 # Use unicorn as the web server
 # gem 'unicorn'

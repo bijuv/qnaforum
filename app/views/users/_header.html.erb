@@ -1,15 +1,19 @@
-<div id= 'buttons'><%= button_to 'Ask', new_query_path %></div>
-<div id= 'header'><%= link_to "HOME", :controller => 'queries', :action => 'index'%></div>
-<div class="jq">
-
+<div class="navbar navbar-fixed">
+		<div class="navbar-inner">
+			<h1 align="center">Welcome to Q & A Forum</h1>
+			<%= button_to 'Ask', new_query_path %>
+			<%= link_to "HOME", :controller => 'queries', :action => 'index'%>
+		</div>
+</div>
+<div class="slider navbar">
 	<% if session[:user_id]%>
 		<% @user= User.find_by_email(session[:user_id]) %>
 		Welcome <%= @user.name %>&nbsp;
 		Karma= <%= @user.karma %>
-		<%=button_to "Logout",:controller => 'users',:action=> 'logout'%>
+		<%=button_to "Logout",:controller => 'users',:action=> 'logout',:class => 'btn btn-mini btn-danger'%>
 	<% else %>
 		<table>
-		<%= form_for(:user, :url => {:controller => "users", :action => "login"}) do |f|%>
+		<%= form_for(:user, :url => {:controller => "users", :action => "login", :class => 'btn btn-mini btn-danger'}) do |f|%>
 			<tr><%= f.label :"e-mail:"%></tr>
 			<tr><%= f.text_field :email%></tr>
 			<tr><%= f.label :"password:"%></tr>
@@ -17,14 +21,15 @@
 			<tr><%= f.submit "Login/Register"%></tr>
 		<%end%>
 		</table>
+</div>
 		</div>
 		<a href="#" id="show_login">Login / Register</a>
 		<script> 
 			$(document).ready(function() {
-				$(".jq").hide();
+				$(".slider").hide();
 			});
 			$("#show_login").click(function () {
-   		   			$(".jq").slideToggle('slow');
+   		   			$(".slider").slideToggle('slow');
     		});
 		</script>
 
