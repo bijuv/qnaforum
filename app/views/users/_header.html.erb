@@ -1,7 +1,7 @@
 <div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<ul class="nav"><li><%= link_to 'ASK_Q', new_query_path %></li>
-			<li><%= link_to "HOME", :class => 'btn', :controller => 'queries', :action => 'index' %></li></ul>
+			<li><%= link_to "HOME", :controller => 'queries', :action => 'index' %></li></ul>
 			<h1 class='brand'>Welcome to Q & A Forum</h1>		
 		<% if session[:user_id]%>
 			<% @user= User.find_by_email(session[:user_id]) %>
@@ -10,7 +10,7 @@
 			<%=button_to "Logout",:controller => 'users',:action=> 'logout',:class => 'btn btn-mini'%>
 		<% else %>
 			<table>
-			<%= form_for(:user, :url => {:controller => "users", :action => "login", :class => 'btn btn-mini'}) do |f|%>
+			<%= form_for(:user, :url => {:controller => "users", :action => "login", :class => 'btn'}) do |f|%>
 				<tr>
 					<td><%= f.label :"e-mail:"%></td>
 					<td><%= f.label :"password:"%></td>
