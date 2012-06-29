@@ -946,7 +946,7 @@ input[type="tel"],
 input[type="color"],
 .uneditable-input {
   display: inline-block;
-  height: 18px;
+  height: 13px;
   padding: 4px;
   margin-bottom: 9px;
   font-size: 13px;
@@ -4403,7 +4403,7 @@ input[type="submit"].btn.btn-mini {
   *position: relative;
   *z-index: 2;
   overflow: visible;
-  margin-bottom: 18px;
+  margin-bottom: 0px;
 }
 .navbar-inner {
   min-height: 40px;

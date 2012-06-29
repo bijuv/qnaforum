@@ -2,7 +2,7 @@
 		<div class="navbar-inner">
 			<h1 align="center">Welcome to Q & A Forum</h1>
 			<%= button_to 'Ask', new_query_path %>
-			<%= link_to "HOME", :controller => 'queries', :action => 'index'%>
+			<%= link_to "HOME", :controller => 'queries', :action => 'index',:class => 'btn btn-mini'%>
 		</div>
 </div>
 <div class="slider navbar">
@@ -10,15 +10,19 @@
 		<% @user= User.find_by_email(session[:user_id]) %>
 		Welcome <%= @user.name %>&nbsp;
 		Karma= <%= @user.karma %>
-		<%=button_to "Logout",:controller => 'users',:action=> 'logout',:class => 'btn btn-mini btn-danger'%>
+		<%=button_to "Logout",:controller => 'users',:action=> 'logout',:class => 'btn btn-mini'%>
 	<% else %>
 		<table>
-		<%= form_for(:user, :url => {:controller => "users", :action => "login", :class => 'btn btn-mini btn-danger'}) do |f|%>
-			<tr><%= f.label :"e-mail:"%></tr>
-			<tr><%= f.text_field :email%></tr>
-			<tr><%= f.label :"password:"%></tr>
-			<tr><%= f.password_field :password%></tr>
-			<tr><%= f.submit "Login/Register"%></tr>
+		<%= form_for(:user, :url => {:controller => "users", :action => "login", :class => 'btn btn-mini'}) do |f|%>
+			<tr>
+				<td><%= f.label :"e-mail:"%></td>
+				<td><%= f.label :"password:"%></td>
+			</tr>
+			<tr>
+				<td><%= f.text_field :email%></td>
+				<td><%= f.password_field :password%></td>
+				<td><%= f.submit "Login/Register"%></td>
+			</tr>
 		<%end%>
 		</table>
 </div>
