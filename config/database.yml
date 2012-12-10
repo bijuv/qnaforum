@@ -8,13 +8,28 @@
 #   gem install pg
 #       Choose the win32 build.
 #       Install PostgreSQL and put its /bin directory on your path.
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: qnaforum_development
+#   pool: 5
+#   username: postgres
+#   password: nextleap 
+#   host: localhost
+#   port: 5432
+
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: qnaforum_development
-  pool: 5
-  username: postgres
-  password: srishti
+   adapter: mysql
+   database: qnaforum_development
+   username: nextleap
+   password: yournextleap
+
+test:
+   adapter: mysql
+   database: qnaforum_development
+   username: nextleap
+   password: yournextleap
+
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -34,18 +49,18 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: qnaforum_test
-  pool: 5
-  username: qnaforum
-  password:
+# test:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: qnaforum_test
+#   pool: 5
+#   username: qnaforum
+#   password:
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: qnaforum_production
-  pool: 5
-  username: qnaforum
-  password:
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: qnaforum_production
+#   pool: 5
+#   username: qnaforum
+#   password:

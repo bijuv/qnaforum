@@ -1,9 +1,8 @@
-<div id="top">
+<div class="form-actions">
 
   <h2>Q. <%= @query.question %>
-  		 <%@user= User.find_by_id(@query.user_id) %></h2>
-		 <% if @user != nil  %>
-		 By: <%= @user.name %>
+		<% if @query.user.present? %>
+  		 By: <%= @query.user.name %>
 		 <% else %>
 		 By: Anonymous
 		 <% end %>

@@ -1,21 +1,40 @@
-<div id= 'buttons'><%= button_to 'Ask', new_query_path %></div>
-<div id= 'header'><%= link_to "HOME", :controller => 'queries', :action => 'index'%></div>
-<div id= 'header'>
-	<% if session[:user_id]%>
-		<% @user= User.find_by_email(session[:user_id]) %>
-		Welcome <%= @user.name %>&nbsp;
-		Karma= <%= @user.karma %>
-		<%=button_to "Logout",:controller => 'users',:action=> 'logout'%>
-	<% else %>
-		<table>
-		<%form_for(:user, :url => {:controller => "users", :action => "login"}) do |f|%>
-			<tr><%= f.label :"e-mail:"%></tr>
-			<tr><%= f.text_field :email%></tr>
-			<tr><%= f.label :"password:"%></tr>
-			<tr><%= f.password_field :password%></tr>
-			<tr><%= f.submit "Login/Register"%></tr>
-		<%end%>
-		</table>
+<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<ul class="nav"><li><%= link_to 'ASK_Q', new_query_path %></li>
+			<li><%= link_to "HOME", :controller => 'queries', :action => 'index' %></li></ul>
+			<h1 class='brand'>Welcome to Q & A Forum</h1>		
+		<% if session[:user_id]%>
+			<% @user= User.find_by_email(session[:user_id]) %>
+			Welcome <%= @user.name %>&nbsp;
+			Karma= <%= @user.karma %>
+			<%=button_to "Logout",:controller => 'users',:action=> 'logout',:class => 'btn btn-mini'%>
+		<% else %>
+			<table>
+			<%= form_for(:user, :url => {:controller => "users", :action => "login", :class => 'btn'}) do |f|%>
+				<tr>
+					<td><%= f.label :"e-mail:"%></td>
+					<td><%= f.label :"password:"%></td>
+				</tr>
+				<tr>
+					<td><%= f.text_field :email%></td>
+					<td><%= f.password_field :password%></td>
+					<td><%= f.submit "Login/Register"%></td>
+				</tr>
+			<%end%>
+			</table>
+		</div>
+</div>
+		</div>
+		<a href="#" id="show_login">Login / Register</a>
+		<script> 
+			$(document).ready(function() {
+				$(".slider").hide();
+			});
+			$("#show_login").click(function () {
+   		   			$(".slider").slideToggle('slow');
+    		});
+		</script>
+
 	<%end%>
 </div>
 
