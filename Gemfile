@@ -6,7 +6,7 @@ gem 'rails', '3.2.3'
 gem 'will_paginate'
 #gem 'pg'
 gem "mysql"
-gem 'thin'
+#gem 'thin'
 #gem 'activerecord-mysql-adapter'
 
 group :assets do
