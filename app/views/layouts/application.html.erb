@@ -1,17 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <link href='/qna_icon.ico' rel='SHORTCUT ICON'>
-  <title>Q & A Forum</title>
-  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
-  <%= javascript_include_tag "jquery-1.7.2" %>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--<script src="http://code.jquery.com/jquery-latest.js"></script> -->
-</head>
-<body>
-	<%= render :partial=> 'users/header'%>
-	<div class="span9"><%= yield %></div>
-</div>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Q & A Forum" %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render 'layouts/navigation' %>
+        </div>
+      </nav>
+    </header>
+    <div id="main" role="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+            <div class="span12">
+              <%= render 'layouts/messages' %>
+              <%= yield %>
+            </div>
+          </div>
+          <footer>
+          </footer>
+        </div>
+      </div> <!--! end of .container -->
+    </div> <!--! end of #main -->
+  </body>
 </html>

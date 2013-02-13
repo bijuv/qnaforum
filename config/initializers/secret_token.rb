@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Qnaforum::Application.config.secret_token = '86272103079b71d5c5f7b7e289cad76234b01f7437457d33086cd449d05d8d9bb3a7248e9176e6194b7b37d306ddf82b9147ffa7a510936e0b6b6e366ed3bb27'
+QnaAdvanced::Application.config.secret_token = '175895c6988ee514b63384fb2f6b789c8508e54604d6c605f2ff398d1a0e72a47bb32c2fa904d62868810b9e797871ddb44548f2979c8b31b43c8c27bddf5122'

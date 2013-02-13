@@ -1,9 +1,14 @@
 class User < ActiveRecord::Base
-  has_many :queries
-  has_many :posts
-  
-  validates :email, :password, :name, :presence => true
-  validates :email, :uniqueness => true
-  validates :name, :format =>{:with => %r{^[a-zA-Z]}}
-  validates :email, :format => {:with => %r{^([a-zA-Z0-9_\-\.]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$}i,:message => 'must be a valid e-mail id.'}
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  # attr_accessible :title, :body
+  validates_presence_of :name
+  validates_uniqueness_of :email, :case_sensitive => false
+
 end
