@@ -1,0 +1,11 @@
+<h1>Welcome to Q & A Forum</h1>
+<p> <%= "#{@total_users} Users are registered" if User.all.count > 1 %> </p>
+<table>
+	<h3>
+<%- @queries.each do |query| %>
+<p> Q <%= link_to(query.query, query_show_path) %>
+	</h3>
+"Posted <%= time_ago_in_words(query.created_at) %> ago </p>
+<%= "Posted by #{query.user.name}" if query.user.present? %>
+<% end %>
+</table>
