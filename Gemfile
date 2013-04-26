@@ -10,6 +10,7 @@ gem 'mysql2'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
+#gem 'execjs'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -20,7 +21,7 @@ group :assets do
 end
 
 gem 'jquery-rails', '2.0.2'
-
+#gem "awesome_print"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -34,4 +35,4 @@ gem 'jquery-rails', '2.0.2'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+ gem 'debugger'

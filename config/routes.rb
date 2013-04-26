@@ -1,4 +1,6 @@
 QnaAdvanced::Application.routes.draw do
+  resources :articles
+
   devise_for :users
 
   # The priority is based upon order of creation:
@@ -50,7 +52,7 @@ QnaAdvanced::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+    root :to => 'articles#index'
 
   # See how all your routes lay out with "rake routes"
 
